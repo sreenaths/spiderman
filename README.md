@@ -1,2 +1,2 @@
-# spiderman
-Spider dataset made easy - A user's manual 
+# SpiderMan
+Spider dataset made easy - A user's manual
