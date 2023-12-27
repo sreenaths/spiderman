@@ -8,7 +8,7 @@ def print_stats(dbs: list):
             total_table_count = total_table_count + table_count
             db_count = db_count + 1
 
-    print("--- Stats ---")
+    print("\n--- Stats ---")
     print("DBs in source: ", len(dbs))
     print("DBs with data: ", db_count)
     print("Total tables processed: ", total_table_count)

@@ -11,7 +11,7 @@ def write_csv(file_path: str, data: list[list]):
         csv_writer.writerows(data)
 
 
-def delete_dir(path: str):
+def clean_dir(path: str):
     if os.path.isdir(path):
         shutil.rmtree(path)
-        print(f'Directory and its contents deleted: {path}')
+        print(f'Cleanup: {path} directory and its contents deleted.')
