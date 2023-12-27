@@ -1,6 +1,6 @@
 ## Building SpiderMan Dataset
 
-Following scripts must help you to build SpiderMan from the original Spider data.
+Following must help you to build SpiderMan from the original Spider data.
 
 ### 1. Download the Spider.zip
 
