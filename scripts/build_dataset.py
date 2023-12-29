@@ -6,6 +6,7 @@ from libs.db import Database, types_used
 from libs.sink import write_csv, clean_dir, write_str
 from libs.utils import print_stats
 
+
 SOURCE_PATH = './source/spider.zip'
 SINK_PATH = './dataset'
 
@@ -14,12 +15,9 @@ SCHEMA_FILE_NAME = 'schema.sql'
 
 TABLE_SKIPLIST = ['sqlite_sequence']
 
-# Step 1
-def write_queries(db_name: str):
-    return
 
-# Step 2
-def write_schema(table_names: list[str], db: Database, db_sink_path: str, db_name):
+def write_schema(table_names: list[str], db: Database, db_sink_path: str,
+                 ):
     table_ddls = []
 
     for table_name in table_names:
@@ -34,7 +32,6 @@ def write_schema(table_names: list[str], db: Database, db_sink_path: str, db_nam
     write_str(file_path, schema)
 
 
-# Step 3
 def write_data(table_names: list[str], db: Database, db_sink_path: str) -> list[str]:
     processed_tables: list[str] = []
 
@@ -48,6 +45,10 @@ def write_data(table_names: list[str], db: Database, db_sink_path: str) -> list[
             processed_tables.append(table_name)
 
     return processed_tables
+
+
+def write_queries(db_name: str):
+    return
 
 
 def process_db(db_name: str, data: bytes) -> list[str]:

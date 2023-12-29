@@ -1,6 +1,7 @@
 from tempfile import NamedTemporaryFile, _TemporaryFileWrapper
 from sqlite3 import connect, Connection
 
+
 ANSI_TYPE_MAP = {
     "TEXT": "VARCHAR(2000)", # TODO: Check the max length needed
     "BOOL": "BOOLEAN",
@@ -48,6 +49,7 @@ def _get_ansi_type(col_type: str) -> str:
     return col_type
 
 INDENTATION = "    "
+
 
 class Database:
     data: bytes

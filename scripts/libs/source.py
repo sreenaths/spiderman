@@ -1,12 +1,15 @@
 from zipfile import ZipFile
 from pydantic import BaseModel
 
+
 SOURCE_DIR = 'spider/database'
 # Example sqlite file path: spider/database/academic/academic.sqlite
+
 
 class File(BaseModel):
     name: str
     path: str
+
 
 class SourceReader:
     path: str

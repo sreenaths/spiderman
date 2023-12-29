@@ -2,6 +2,7 @@ import csv
 import os
 import shutil
 
+
 def create_missing_dir(file_path: str):
     output_directory = os.path.dirname(file_path)
     os.makedirs(output_directory, exist_ok=True)
