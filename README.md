@@ -10,6 +10,11 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Rebuild Dataset
+## Build Dataset
 
-You must be able to use spider man without rebuilding the dataset. But in case you would like to, [BUILD_README.md](BUILD_README.md) must help you to build SpiderMan from the original Spider data.
+[BUILD_README.md](BUILD_README.md) must help you to build SpiderMan from the original Spider data.
+
+## View Dataset Stats
+```
+python scripts/print_stats.py
+```
