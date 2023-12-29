@@ -19,7 +19,7 @@ def print_stats():
             total_tables += lines.count('CREATE TABLE')
 
 
-    print("\n--- Stats ---")
+    print("--- Stats ---")
     print("DBs in source: ", len(db_names))
     print("DBs with data: ", dbs_with_data)
     print("Total tables: ", total_tables)

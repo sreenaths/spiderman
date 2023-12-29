@@ -50,13 +50,15 @@ def _get_ansi_type(col_type: str) -> str:
 
 INDENTATION = "    "
 
-
+# Wrapper over a SQLLite file
 class Database:
+    name: str
     data: bytes
     file: _TemporaryFileWrapper
     connection: Connection
 
-    def __init__(self, data: bytes):
+    def __init__(self, name: str, data: bytes):
+        self.name = name
         self.data = data
 
     def __enter__(self):
@@ -78,7 +80,7 @@ class Database:
         cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
         tables = cursor.fetchall()
         cursor.close()
-        return [t[0] for t in tables]
+        return [t[0] for t in tables if t[0] != 'sqlite_sequence']
 
     def _execute_pragma(self, command: str, table_name: str):
         cursor = self.connection.cursor()
@@ -192,7 +194,7 @@ class Database:
         defs_str = ",\n".join(table_defs)
         return f"""CREATE TABLE \"{table_name}\" (\n{defs_str}\n);"""
 
-    def get_table_ddl1(self, name: str) -> str:
+    def get_original_table_ddl(self, name: str) -> str:
         cursor = self.connection.cursor()
         cursor.execute(f'SELECT sql FROM sqlite_master WHERE type="table" AND name="{name}"')
         ddl_str = cursor.fetchone()[0]
