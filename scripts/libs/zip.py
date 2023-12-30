@@ -11,7 +11,7 @@ class File(BaseModel):
     path: str
 
 
-class SourceReader:
+class ZipReader:
     path: str
     zip: ZipFile
 
