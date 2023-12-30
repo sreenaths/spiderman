@@ -35,5 +35,5 @@ class ZipReader:
                 files.append(File(name=file_name, path=file_path))
         return files
 
-    def read_file(self, file: File) -> bytes:
-        return self.zip.read(file.path)
+    def read_file(self, path: str) -> bytes:
+        return self.zip.read(path)
