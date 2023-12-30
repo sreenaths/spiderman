@@ -1,5 +1,5 @@
 # SpiderMan
-Spider dataset made easy - A user's manual
+Spider dataset made easy
 
 ## Install Requirements
 Python 3.11.4 was used for development.
@@ -21,7 +21,15 @@ python scripts/print_stats.py
 
 ### Citation
 
+When you use the SpiderMan dataset, we would appreciate it if you cite the following:
+
 ```
+@inproceedings{spiderman,
+  year =         2023,
+  title =        {SpiderMan - Spider dataset made easy},
+  author =       {Sreenath Somarajapuram}
+}
+
 @inproceedings{Yu&al.18c,
   year =         2018,
   title =        {Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task},
