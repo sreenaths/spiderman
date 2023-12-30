@@ -10,6 +10,9 @@ def print_stats():
 
     db_names = os.listdir(SINK_PATH)
 
+    if '.DS_Store' in db_names:
+        db_names.remove('.DS_Store')
+
     for db_name in db_names:
         if path.exists(path.join(SINK_PATH, db_name, DATA_DIR)):
             dbs_with_data += 1
