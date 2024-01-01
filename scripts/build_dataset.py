@@ -13,5 +13,4 @@ process_source()
 print("Build completed successfully.")
 
 # Scan generated dataset and print stats
-print("\n")
 dataset.scan()

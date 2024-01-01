@@ -51,6 +51,7 @@ def scan():
             total_tables += lines.count('CREATE TABLE')
 
 
+    print("") # Add extra newline
     print("--- Dataset Stats ---")
     print("DBs in source: ", len(db_names))
     print("DBs with training queries: ", dbs_with_train_queries)
@@ -58,3 +59,4 @@ def scan():
 
     print("DBs with data: ", dbs_with_data)
     print("Total tables: ", total_tables)
+    print("")
