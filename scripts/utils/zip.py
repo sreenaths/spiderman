@@ -1,14 +1,10 @@
 from zipfile import ZipFile
 from pydantic import BaseModel
 
-from configs import DB_SOURCE_DIR
-
-
-# Example sqlite file path: spider/database/academic/academic.sqlite
-
 
 class File(BaseModel):
     name: str
+    dir: str
     path: str
 
 
@@ -26,13 +22,13 @@ class ZipReader:
     def __exit__(self, exc_type, exc_value, traceback):
         self.zip.close()
 
-    def list_files(self) -> list[File]:
+    def list_sqlite_files_in(self, base_dir: str) -> list[File]:
         files = []
         file_list = self.zip.namelist()
         for file_path in file_list:
-            if file_path.startswith(DB_SOURCE_DIR) and file_path.endswith('.sqlite'):
-                file_name = file_path.split("/")[2]
-                files.append(File(name=file_name, path=file_path))
+            if file_path.startswith(base_dir) and file_path.endswith('.sqlite'):
+                parts = file_path.split("/")
+                files.append(File(name=parts[2], dir=parts[1], path=file_path))
         return files
 
     def read_file(self, path: str) -> bytes:

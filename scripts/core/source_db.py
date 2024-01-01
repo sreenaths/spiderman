@@ -51,7 +51,7 @@ def _get_ansi_type(col_type: str) -> str:
 INDENTATION = "    "
 
 # Wrapper over a SQLLite file
-class LiteDB:
+class SourceDB:
     name: str
     data: bytes
     file: _TemporaryFileWrapper
