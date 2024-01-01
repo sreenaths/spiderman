@@ -51,7 +51,7 @@ def _get_ansi_type(col_type: str) -> str:
 INDENTATION = "    "
 
 # Wrapper over a SQLLite file
-class Database:
+class LiteDB:
     name: str
     data: bytes
     file: _TemporaryFileWrapper
@@ -72,8 +72,8 @@ class Database:
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
-        self.file.close()
         self.connection.close()
+        self.file.close()
 
     def list_tables(self) -> list[str]:
         cursor = self.connection.cursor()

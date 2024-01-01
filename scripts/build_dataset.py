@@ -3,14 +3,14 @@ import json
 from alive_progress import alive_bar;
 
 from libs.zip import ZipReader
-from libs.db import Database, types_used
+from libs.sqlite import LiteDB, types_used
 from libs.file import write_csv, clean_dir, write_str
 from libs.stats import print_stats
 
 from configs import SINK_PATH, SOURCE_PATH, SCHEMA_FILE_NAME, DATA_DIR, TRAIN_DATA_1, TRAIN_DATA_2, TEST_DATA
 
 
-def write_schema(table_names: list[str], db: Database, db_sink_path: str):
+def write_schema(table_names: list[str], db: LiteDB, db_sink_path: str):
     table_ddls = []
 
     for table_name in table_names:
@@ -26,7 +26,7 @@ def write_schema(table_names: list[str], db: Database, db_sink_path: str):
     write_str(file_path, schema)
 
 
-def write_data(table_names: list[str], db: Database, db_sink_path: str):
+def write_data(table_names: list[str], db: LiteDB, db_sink_path: str):
     for table_name in table_names:
         table_data = db.get_table_data(table_name)
 
@@ -39,7 +39,7 @@ def write_data(table_names: list[str], db: Database, db_sink_path: str):
 def process_db(db_name: str, data: bytes):
     db_sink_path = path.join(SINK_PATH, db_name)
 
-    with Database(db_name, data) as db:
+    with LiteDB(db_name, data) as db:
         table_names = db.list_tables()
         write_schema(table_names, db, db_sink_path)
         write_data(table_names, db, db_sink_path)
