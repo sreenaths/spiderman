@@ -17,6 +17,8 @@ TRAIN_DATA_1 = 'spider/train_spider.json'
 TRAIN_DATA_2 = 'spider/train_others.json'
 TEST_DATA = 'spider/dev.json'
 
+TABLE_DELIM = "\n\n"
+
 def write_schema(table_names: list[str], db: SourceDB):
     table_ddls = []
     for table_name in table_names:
@@ -27,7 +29,7 @@ def write_schema(table_names: list[str], db: SourceDB):
     file_path = dataset.path_to_schema_file(db.name)
     #file_path = path.join("./schema", f"{db.name}.sql") # Used for schema debugging
 
-    schema = "\n\n".join(table_ddls)
+    schema = TABLE_DELIM.join(table_ddls)
     schema = schema + "\n" # New line at EOF
     write_str(file_path, schema)
 

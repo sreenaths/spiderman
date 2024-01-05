@@ -25,17 +25,36 @@ def path_to_test_queries_file(db_name: str) -> str:
     return path.join(BASE_DIR, db_name, 'test_queries.csv')
 
 
+def _clean_names(names: list[str]) -> list[str]:
+    if '.DS_Store' in names:
+        names.remove('.DS_Store')
+    return names
+
+
+def get_db_names() -> list[str]:
+    db_names = os.listdir(BASE_DIR)
+    return _clean_names(db_names)
+
+
+def get_table_names(db_name: str) -> list[str]:
+    data_dir = path_to_data_dir(db_name)
+    table_names = os.listdir(data_dir) if path.exists(data_dir) else []
+    table_names = [path.splitext(filename)[0] for filename in table_names]
+    return _clean_names(table_names)
+
+
+def get_schema(db_name: str) -> str:
+    with open(path_to_schema_file(db_name)) as f:
+        return f.read()
+
+
 def scan():
     dbs_with_data = 0
     total_tables = 0
     dbs_with_train_queries = 0
     dbs_with_test_queries = 0
 
-    db_names = os.listdir(BASE_DIR)
-
-    if '.DS_Store' in db_names:
-        db_names.remove('.DS_Store')
-
+    db_names = get_db_names()
     for db_name in db_names:
         if path.exists(path_to_data_dir(db_name)):
             dbs_with_data += 1
@@ -46,10 +65,8 @@ def scan():
         if path.exists(path_to_test_queries_file(db_name)):
             dbs_with_test_queries += 1
 
-        with open(path_to_schema_file(db_name)) as f:
-            lines = f.read()
-            total_tables += lines.count('CREATE TABLE')
-
+        schema = get_schema(db_name)
+        total_tables += schema.count('CREATE TABLE')
 
     print("") # Add extra newline
     print("--- Dataset Stats ---")
