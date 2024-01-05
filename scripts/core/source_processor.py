@@ -40,8 +40,8 @@ def write_data(table_names: list[str], db: SourceDB):
     for table_name in table_names:
         table_data = db.get_table_data(table_name)
 
-        data_is_missing = len(table_data) > 1 # 1st row is always header
-        if data_is_missing:
+        data_is_available = len(table_data) > 1 # 1st row is always header
+        if data_is_available:
             file_path = path.join(data_dir, f'{table_name}.csv')
             write_csv(file_path, table_data)
 
