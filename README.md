@@ -2,7 +2,7 @@
 Spider dataset made easy
 
 ## Install Requirements
-Python 3.11.4 was used for development.
+Python 3.9.16 was used for development.
 
 ```
 python -m venv .venv
