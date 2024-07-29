@@ -1,5 +1,5 @@
-# SpiderMan - Rebuild
-Recreate dataset from [Spider 1.0](https://yale-lily.github.io/spider) zip into `./dataset_build` directory. Current directory if present will be deleted and recreated.
+# SpiderMan - Rebuild Dataset
+You can use the following scripts to recreate the dataset from [Spider 1.0](https://yale-lily.github.io/spider) zip into `./dataset_build` directory. Current directory if present will be deleted and recreated. Changes if any will be overwritten.
 
 ### Download Source Zip
 Download a copy of the original zip from HuggingFace into `./source` directory

@@ -53,6 +53,11 @@ python scripts/scan_dataset.py
 ```
 This scripts go through the dataset and aggregate various details.
 
+# Docs
+The following documentation will assist you in more advanced utilization of the dataset and its associated code.
+
+- [Rebuild Dataset](./docs/REBUILD_DATASET.md)
+
 # Citation
 
 If you find this to be useful, please consider citing:
