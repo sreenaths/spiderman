@@ -56,6 +56,7 @@ This scripts go through the dataset and aggregate various details.
 # Docs
 The following documentation will assist you in more advanced utilization of the dataset and its associated code.
 
+- [More Dialects](./docs/MORE_DIALECTS.md)
 - [Rebuild Dataset](./docs/REBUILD_DATASET.md)
 
 # Citation
