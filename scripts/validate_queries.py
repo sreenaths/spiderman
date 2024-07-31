@@ -10,10 +10,10 @@ import pandas as pd
 
 from core.target_db import TargetDB
 from core.dataset import DatasetDir
-from utils.args import get_args
+from utils.args import get_url_dialect_args
 
 
-args = get_args("Validate successful execution of all queries on the target database")
+args = get_url_dialect_args("Validate successful execution of all queries on the target database")
 
 dataset = DatasetDir(args.dialect)
 

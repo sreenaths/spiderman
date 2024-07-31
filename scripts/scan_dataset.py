@@ -7,6 +7,7 @@ import pandas as pd
 from core.dataset import DatasetDir
 from utils.print import print_bar
 from utils.filesystem import read_str
+from utils.args import get_dialect_arg
 
 
 def _get_counts(dataset: DatasetDir, query_file_path: str):
@@ -45,9 +46,7 @@ def print_stats(dataset: DatasetDir) -> dict:
     print_bar()
 
 if __name__ == "__main__":
-    parser = ArgumentParser(description="SpiderMan - Scan dataset_mysql directory")
-    parser.add_argument("-d", "--dialect", help="Target dialect.", default="mysql")
-    args = parser.parse_args()
+    args = get_dialect_arg("Scan default dataset directory")
 
     dataset_dir = DatasetDir(args.dialect)
     print(f"Scaning {dataset_dir.base_path} directory")

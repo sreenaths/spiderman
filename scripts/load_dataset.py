@@ -7,10 +7,10 @@ from core import paths
 from core.target_db import TargetDB
 from core.dataset import DatasetDir
 from utils.filesystem import read_str, read_json_dict
-from utils.args import get_args
+from utils.args import get_url_dialect_args
 
 
-args = get_args("Load schema and data into a target database")
+args = get_url_dialect_args("Load schema and data into a target database")
 
 # Get list of table names, ordered based on foreign key dependency
 ordered_tables = read_json_dict(paths.ORDERED_TABLES)
