@@ -1,9 +1,9 @@
 Marketing_Region_Code,Marketing_Region_Name,Marketing_Region_Descriptrion,Other_Details
 CA,Canada,Our target market,NULL
 CN,China,Our largest market,NULL
-ES,Spain,,NULL
-FR,France,,NULL
-IN,India,,NULL
-MX,Mexico,,NULL
-RU,Russia,,NULL
+ES,Spain,NULL,NULL
+FR,France,NULL,NULL
+IN,India,NULL,NULL
+MX,Mexico,NULL,NULL
+RU,Russia,NULL,NULL
 US,United States,Our main market,NULL

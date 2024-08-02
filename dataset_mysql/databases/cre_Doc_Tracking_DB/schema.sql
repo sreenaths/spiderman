@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS `cre_Doc_Tracking_DB`.`Ref_Document_Types`;
 CREATE TABLE `cre_Doc_Tracking_DB`.`Ref_Document_Types` (
     `Document_Type_Code` CHAR(15) NOT NULL,
     `Document_Type_Name` VARCHAR(255) NOT NULL,
-    `Document_Type_Description` VARCHAR(255) NOT NULL,
+    `Document_Type_Description` VARCHAR(255),
     PRIMARY KEY (`Document_Type_Code`)
 );
 
@@ -21,7 +21,7 @@ DROP TABLE IF EXISTS `cre_Doc_Tracking_DB`.`Ref_Locations`;
 CREATE TABLE `cre_Doc_Tracking_DB`.`Ref_Locations` (
     `Location_Code` CHAR(15) NOT NULL,
     `Location_Name` VARCHAR(255) NOT NULL,
-    `Location_Description` VARCHAR(255) NOT NULL,
+    `Location_Description` VARCHAR(255),
     PRIMARY KEY (`Location_Code`)
 );
 
@@ -51,7 +51,7 @@ CREATE TABLE `cre_Doc_Tracking_DB`.`Employees` (
     `Employee_ID` INTEGER NOT NULL,
     `Role_Code` CHAR(15) NOT NULL,
     `Employee_Name` VARCHAR(255),
-    `Gender_MFU` CHAR(1) NOT NULL,
+    `Gender_MFU` BOOLEAN,
     `Date_of_Birth` DATETIME NOT NULL,
     `Other_Details` VARCHAR(255),
     PRIMARY KEY (`Employee_ID`),

@@ -42,7 +42,7 @@ DROP TABLE IF EXISTS `cre_Drama_Workshop_Groups`.`Marketing_Regions`;
 CREATE TABLE `cre_Drama_Workshop_Groups`.`Marketing_Regions` (
     `Marketing_Region_Code` CHAR(15) NOT NULL,
     `Marketing_Region_Name` VARCHAR(255) NOT NULL,
-    `Marketing_Region_Descriptrion` VARCHAR(255) NOT NULL,
+    `Marketing_Region_Descriptrion` VARCHAR(255),
     `Other_Details` VARCHAR(255),
     PRIMARY KEY (`Marketing_Region_Code`)
 );

@@ -44,7 +44,7 @@ DROP TABLE IF EXISTS `cre_Theme_park`.`Hotels`;
 CREATE TABLE `cre_Theme_park`.`Hotels` (
     `hotel_id` INTEGER NOT NULL,
     `star_rating_code` CHAR(15) NOT NULL,
-    `pets_allowed_yn` CHAR(1),
+    `pets_allowed_yn` BOOLEAN,
     `price_range` REAL,
     `other_hotel_details` VARCHAR(255),
     PRIMARY KEY (`hotel_id`),
@@ -112,7 +112,7 @@ CREATE TABLE `cre_Theme_park`.`Visits` (
     `Tourist_Attraction_ID` INTEGER NOT NULL,
     `Tourist_ID` INTEGER NOT NULL,
     `Visit_Date` DATETIME NOT NULL,
-    `Visit_Details` VARCHAR(40) NOT NULL,
+    `Visit_Details` VARCHAR(40),
     PRIMARY KEY (`Visit_ID`),
     FOREIGN KEY (`Tourist_ID`) REFERENCES `cre_Theme_park`.`Visitors` (`Tourist_ID`),
     FOREIGN KEY (`Tourist_Attraction_ID`) REFERENCES `cre_Theme_park`.`Tourist_Attractions` (`Tourist_Attraction_ID`)

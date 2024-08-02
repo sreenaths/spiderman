@@ -44,7 +44,7 @@ CREATE TABLE `tracking_grants_for_research`.`Documents` (
     `grant_id` INTEGER NOT NULL,
     `sent_date` DATETIME NOT NULL,
     `response_received_date` DATETIME NOT NULL,
-    `other_details` VARCHAR(255) NOT NULL,
+    `other_details` VARCHAR(255),
     PRIMARY KEY (`document_id`),
     FOREIGN KEY (`grant_id`) REFERENCES `tracking_grants_for_research`.`Grants` (`grant_id`),
     FOREIGN KEY (`document_type_code`) REFERENCES `tracking_grants_for_research`.`Document_Types` (`document_type_code`)

@@ -27,7 +27,7 @@ CREATE TABLE `world_1`.`city` (
     `ID` INTEGER NOT NULL,
     `Name` CHAR(35) NOT NULL DEFAULT '',
     `CountryCode` CHAR(3) NOT NULL DEFAULT '',
-    `District` CHAR(20) NOT NULL DEFAULT '',
+    `District` CHAR(20) DEFAULT '',
     `Population` INTEGER NOT NULL DEFAULT '0',
     PRIMARY KEY (`ID`),
     FOREIGN KEY (`CountryCode`) REFERENCES `world_1`.`country` (`Code`),

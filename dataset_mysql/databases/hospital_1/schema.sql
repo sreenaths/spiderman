@@ -91,7 +91,7 @@ CREATE TABLE `hospital_1`.`Medication` (
     `Code` INTEGER NOT NULL,
     `Name` VARCHAR(30) NOT NULL,
     `Brand` VARCHAR(30) NOT NULL,
-    `Description` VARCHAR(30) NOT NULL,
+    `Description` VARCHAR(30),
     PRIMARY KEY (`Code`)
 );
 

@@ -3283,7 +3283,7 @@ ID,Name,CountryCode,District,Population
 3282,Yungkang,TWN,Tainan,193005
 3283,Pingchen,TWN,Taoyuan,188344
 3284,Tali,TWN,Taichung,171940
-3285,Taiping,TWN,,165524
+3285,Taiping,TWN,NULL,165524
 3286,Pate,TWN,Taoyuan,161700
 3287,Fengyuan,TWN,Taichung,161032
 3288,Luchou,TWN,Taipei,160516
@@ -3291,8 +3291,8 @@ ID,Name,CountryCode,District,Population
 3290,Shulin,TWN,Taipei,151260
 3291,Yuanlin,TWN,Changhwa,126402
 3292,Yangmei,TWN,Taoyuan,126323
-3293,Taliao,TWN,,115897
-3294,Kueishan,TWN,,112195
+3293,Taliao,TWN,NULL,115897
+3294,Kueishan,TWN,NULL,112195
 3295,Tanshui,TWN,Taipei,111882
 3296,Taitung,TWN,Taitung,111039
 3297,Hualien,TWN,Hualien,108407
@@ -3561,7 +3561,7 @@ ID,Name,CountryCode,District,Population
 3560,Guarenas,VEN,Miranda,165889
 3561,Acarigua,VEN,Portuguesa,158954
 3562,Puerto La Cruz,VEN,Anzoátegui,155700
-3563,Ciudad Losada,VEN,,134501
+3563,Ciudad Losada,VEN,NULL,134501
 3564,Guacara,VEN,Carabobo,131334
 3565,Valera,VEN,Trujillo,130281
 3566,Guanare,VEN,Portuguesa,125621

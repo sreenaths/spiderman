@@ -16,7 +16,7 @@ CREATE TABLE `cre_Doc_Template_Mgt`.`Templates` (
     `Template_Type_Code` CHAR(15) NOT NULL,
     `Date_Effective_From` DATETIME,
     `Date_Effective_To` DATETIME,
-    `Template_Details` VARCHAR(255) NOT NULL,
+    `Template_Details` VARCHAR(255),
     PRIMARY KEY (`Template_ID`),
     FOREIGN KEY (`Template_Type_Code`) REFERENCES `cre_Doc_Template_Mgt`.`Ref_Template_Types` (`Template_Type_Code`)
 );

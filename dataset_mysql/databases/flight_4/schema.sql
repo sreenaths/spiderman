@@ -6,8 +6,8 @@ DROP TABLE IF EXISTS `flight_4`.`airlines`;
 CREATE TABLE `flight_4`.`airlines` (
     `alid` INTEGER,
     `name` TEXT,
-    `iata` VARCHAR(2),
-    `icao` VARCHAR(3),
+    `iata` VARCHAR(3),
+    `icao` VARCHAR(5),
     `callsign` TEXT,
     `country` TEXT,
     `active` VARCHAR(2),
