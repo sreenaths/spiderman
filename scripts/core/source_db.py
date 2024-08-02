@@ -9,6 +9,7 @@ from typing import List, Union
 
 column_overrides = read_json_dict(paths.COLUMN_OVERRIDES)
 datatype_overrides = column_overrides["datatype"]
+not_null_overrides = column_overrides["not_null"]
 primary_key_overrides = column_overrides["primary_key"]
 unique_overrides = column_overrides["unique"]
 foreign_key_overrides = column_overrides["foreign_key"]
@@ -121,6 +122,7 @@ class SourceDB:
         for col in columns_info:
             col_name = col[1]
             col_type = col[2]
+            is_not_null = col[3]
 
             # For all tables using *
             col_path = f"{self.name}.*.{col_name}"
@@ -132,10 +134,14 @@ class SourceDB:
             if col_path in datatype_overrides:
                 col_type = datatype_overrides[col_path]
 
+            # Not null overrides
+            if col_path in not_null_overrides:
+                is_not_null = not_null_overrides[col_path]
+
             columns.append(Column(
                 name = col_name,
                 type = col_type,
-                is_not_null = col[3],
+                is_not_null = is_not_null,
                 default_val = col[4],
                 is_primary_key = (col[5] != 0 or col_name in pk_columns),
                 is_unique = (col_name in unique_columns),

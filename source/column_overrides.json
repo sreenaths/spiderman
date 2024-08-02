@@ -31,12 +31,16 @@
         "concert_singer.singer.Is_male": "CHAR(1)",
         "concert_singer.singer_in_concert.Singer_ID": "INT",
 
+        "cre_Doc_Tracking_DB.Employees.Gender_MFU": "BOOLEAN",
+
         "cre_Drama_Workshop_Groups.Addresses.Address_ID": "INT",
         "cre_Drama_Workshop_Groups.Bookings.Workshop_Group_ID": "INT",
         "cre_Drama_Workshop_Groups.Customers.Customer_ID": "INT",
         "cre_Drama_Workshop_Groups.Products.Product_ID": "INT",
         "cre_Drama_Workshop_Groups.Ref_Payment_Methods.payment_method_code": "CHAR (15)",
         "cre_Drama_Workshop_Groups.Stores.Store_ID": "INT",
+
+        "cre_Theme_park.Hotels.pets_allowed_yn": "BOOLEAN",
 
         "culture_company.culture_company.book_club_id": "INT",
         "culture_company.culture_company.movie_id": "INT",
@@ -64,6 +68,9 @@
 
         "flight_2.flights.DestAirport": "VARCHAR(50)",
         "flight_2.flights.SourceAirport": "VARCHAR(50)",
+
+        "flight_4.airlines.iata": "VARCHAR(3)",
+        "flight_4.airlines.icao": "VARCHAR(5)",
         "flight_4.routes.alid": "INT",
         "flight_4.routes.src_apid": "INT",
 
@@ -145,6 +152,23 @@
 
         "yelp.*.business_id": "VARCHAR(100)",
         "yelp.*.user_id": "VARCHAR(100)"
+    },
+    "not_null": {
+        "cre_Doc_Template_Mgt.Templates.Template_Details": false,
+
+        "cre_Doc_Tracking_DB.Ref_Document_Types.Document_Type_Description": false,
+        "cre_Doc_Tracking_DB.Ref_Locations.Location_Description": false,
+        "cre_Doc_Tracking_DB.Employees.Gender_MFU": false,
+
+        "cre_Drama_Workshop_Groups.Marketing_Regions.Marketing_Region_Descriptrion": false,
+
+        "cre_Theme_park.Visits.Visit_Details": false,
+
+        "hospital_1.Medication.Description": false,
+
+        "tracking_grants_for_research.Documents.other_details": false,
+
+        "world_1.city.District": false
     },
     "primary_key": {
         "baseball_1.college": ["college_id"],
