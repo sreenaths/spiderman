@@ -3,15 +3,16 @@
 import json
 from alive_progress import alive_bar
 
-from utils.zip import ZipReader
 from core.builders import build_db, build_queries
 from core.dataset import DatasetDir
 from core import paths
 from scan_dataset import print_stats
+from utils.zip import ZipReader
+from utils.args import get_dialect_arg
 
 
-DATASET_SUFFIX = "build"
-dataset = DatasetDir(DATASET_SUFFIX)
+args = get_dialect_arg("Scan default dataset directory", default="build")
+dataset = DatasetDir(args.dialect)
 
 def build_schema_and_data(source_zip: ZipReader):
     """Build SCHEMA and DATA of databases"""

@@ -20,11 +20,11 @@ def get_url_dialect_args(description: str) -> Namespace:
 
     return args
 
-def get_dialect_arg(description: str) -> Namespace:
+def get_dialect_arg(description: str, default: str="mysql") -> Namespace:
     """Get command line arguments"""
     parser = ArgumentParser(description=f"SpiderMan - {description}")
 
-    parser.add_argument("-d", "--dialect", help="Target dialect.", default="mysql")
+    parser.add_argument("-d", "--dialect", help="Target dialect.", default=default)
 
     args = parser.parse_args()
     return args
