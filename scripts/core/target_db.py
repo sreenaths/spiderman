@@ -1,26 +1,10 @@
+from pandas import DataFrame
 from typing import Callable
 
 from urllib.parse import urlparse, urlunparse
 
 from sqlalchemy import create_engine, text
 from sqlalchemy_utils import database_exists, create_database, drop_database
-
-
-def batch(iterable, n=1):
-    l = len(iterable)
-    for ndx in range(0, l, n):
-        yield iterable[ndx:min(ndx + n, l)]
-
-def _format(values: list[str], punctuation: str) -> str:
-    punctuated_values = []
-    for value in values:
-        if value != "NULL":
-            value = value.replace(punctuation, f'\\{punctuation}') # Escape
-            if not value.startswith(punctuation):
-                value = f'{punctuation}{value}{punctuation}'
-        punctuated_values.append(value)
-    values_str = ', '.join(punctuated_values)
-    return f"({values_str})"
 
 
 # Wrapper around SQLAlchemy for interacting with external databases
@@ -64,13 +48,9 @@ class TargetDB:
 
         self.execute_statements(statements)
 
-    def insert(self, table_name: str, column_names: list[str], rows: list, batch_size: int = 500):
-        columns_str = _format(column_names, '`')
-
-        insert_statements = []
-        for rows_batch in batch(rows, batch_size):
-            row_strs = [_format(row, '"') for row in rows_batch]
-            insert_statements.append(f"INSERT INTO `{table_name}` {columns_str} VALUES {', '.join(row_strs)}")
-            # Going with the above dumb approach as PyHive have issues with multi insert https://github.com/dropbox/PyHive/issues/250
-
-        self.execute_statements(insert_statements)
+    def insert(self, table_name: str, df: DataFrame, batch_size: int = 500):
+        try:
+            df.to_sql(table_name, con=self.engine, if_exists='append', index=False, chunksize = batch_size)
+        except Exception as e:
+            print(f"Error inserting data - DB: {self.db_name} Table: {table_name}")
+            raise e

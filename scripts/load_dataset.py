@@ -43,9 +43,9 @@ def insert_data():
                 for table_name in table_names:
                     progress.text(f">> DB: {db_name} | Table: {table_name}")
                     table_data_file = dataset.path_to_table_data_file(db_name, table_name)
-                    df = pd.read_csv(table_data_file, dtype=str, na_filter=False)
+                    df = pd.read_csv(table_data_file, keep_default_na=False, na_values=['', 'NULL'])
                     progress.text(f">> DB: {db_name} | Table: {table_name} | Rows: {len(df.values)}")
-                    db.insert(table_name, df.columns, df.values)
+                    db.insert(table_name, df)
             progress() # pylint: disable=not-callable
 
 create_databases()
