@@ -47,5 +47,5 @@ if __name__ == "__main__":
     args = get_dialect_arg("Scan default dataset directory")
 
     dataset_dir = DatasetDir(args.dialect)
-    print(f"Scaning {dataset_dir.base_path} directory")
+    print(f"Scanning {dataset_dir.base_path} directory")
     print_stats(dataset_dir)
