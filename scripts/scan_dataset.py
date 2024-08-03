@@ -1,7 +1,5 @@
 """Scan dataset_mysql directory"""
 
-from argparse import ArgumentParser
-
 import pandas as pd
 
 from core.dataset import DatasetDir
@@ -21,7 +19,7 @@ def _get_counts(dataset: DatasetDir, query_file_path: str):
 
     return len(queries_df.values), tables_count, db_names
 
-def print_stats(dataset: DatasetDir) -> dict:
+def print_stats(dataset: DatasetDir):
     """Get dataset stats and print"""
 
     train_queries, train_tables, train_db_names = _get_counts(dataset,
@@ -29,7 +27,7 @@ def print_stats(dataset: DatasetDir) -> dict:
     test_queries, test_tables, test_db_names = _get_counts(dataset,
                                                            dataset.path_to_test_queries_file())
 
-    print_bar("Dataset Stats")
+    print_bar(f"Dataset Stats - {dataset.base_path}")
 
     print("Train queries:", train_queries)
     print("Tables used in train queries:", train_tables)
